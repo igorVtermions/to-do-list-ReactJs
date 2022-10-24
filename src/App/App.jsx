@@ -5,12 +5,20 @@ import { Card } from '../components/Card'
 
 
 export function App() {
-  const [taskAction, setTaskAction] = useState()
-  const [showTask, setShowTask] = useState()
+  const [taskAction, setTaskAction] = useState("")
+  const [showTask, setShowTask] = useState([])
 
  function action(){
-    return setShowTask(taskAction)
+    if(taskAction !== "" && !taskAction.match(/^[ \t]+$/)){
+      const newItem = {
+          value: taskAction,
+          id: Date.now()
+        }
+        setShowTask((prevState)=> [...prevState, newItem])
+    }
+    setTaskAction("")
  }
+
   return (
     <>
     <GlobalStyle />
@@ -18,7 +26,7 @@ export function App() {
       <Container>
         <div className='Container-card'>
             <label htmlFor="input" >Qual a sua tarefa ?</label>
-            <input type="text" name='task' onChange={(e) => setTaskAction(e.target.value)} />
+            <input type="text" name='task' value={taskAction} onChange={(e) => setTaskAction(e.target.value)} />
             <button onClick={action}>Adicionar</button>
         </div>
 
