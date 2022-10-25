@@ -19,6 +19,15 @@ export function App() {
     setTaskAction("")
  }
 
+  function removeTask(id){
+    const deleteItem = showTask.filter((task) =>{
+
+      return task.id !== id
+    })
+    setShowTask(deleteItem)
+  }
+
+
   return (
     <>
     <GlobalStyle />
@@ -30,7 +39,7 @@ export function App() {
             <button onClick={action}>Adicionar</button>
         </div>
 
-        <Card showTask={showTask} />
+        <Card showTask={showTask}  removeTask={removeTask} />
 
       </Container>
 

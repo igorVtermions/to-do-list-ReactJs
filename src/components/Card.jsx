@@ -1,7 +1,7 @@
 import { Container } from "./style"
 
 
-export function Card({showTask}){
+export function Card({showTask}, {removeTask}){
 
 
     return(
@@ -10,7 +10,7 @@ export function Card({showTask}){
 
 {showTask.map((item) => <div key={item.id} className= "cardContent">
     <h3>{item.value}</h3>
-    <p><ion-icon name="close-outline"></ion-icon></p>
+    <p onClick={() => removeTask(showTask.id)}><ion-icon name="close-outline"></ion-icon></p>
     </div>)}
     </Container>
         </>

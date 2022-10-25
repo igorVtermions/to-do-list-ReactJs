@@ -22,5 +22,10 @@ export const Container = styled.section`
         font-size: 25px;
         font-weight: bold;
         cursor: pointer;
+        transition: all .4s ease-in;
+    }
+
+    p:hover{
+        transform: scale(1.2);
     }
 `
