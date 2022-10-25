@@ -19,11 +19,10 @@ export function App() {
     setTaskAction("")
  }
 
-  function removeTask(id){
-    const deleteItem = showTask.filter((task) =>{
 
-      return task.id !== id
-    })
+
+  function removeTask(id){
+    const deleteItem = showTask.filter((task) =>task.id !== id)
     setShowTask(deleteItem)
   }
 
